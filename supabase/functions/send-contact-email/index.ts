@@ -48,7 +48,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to Nabras Technical
     const emailResponse = await resend.emails.send({
       from: "نبراس التقنية <onboarding@resend.dev>",
-      to: ["info@nabrastech.com"], // Replace with actual company email
+      to: ["mousa.omar.com@gmail.com"],
       subject: `طلب جديد من العميل: ${formData.name}`,
       html: `
         <div dir="rtl" style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
@@ -139,7 +139,7 @@ const handler = async (req: Request): Promise<Response> => {
             <div style="text-align: center; margin: 30px 0;">
               <p style="color: #4a5568;">للاستفسارات العاجلة، يمكنك التواصل معنا:</p>
               <p style="color: #e97948; font-weight: bold;">📞 +218-XX-XXXXXXX</p>
-              <p style="color: #e97948; font-weight: bold;">📧 info@nabrastech.com</p>
+              <p style="color: #e97948; font-weight: bold;">📧 mousa.omar.com@gmail.com</p>
             </div>
 
             <p style="color: #718096; font-size: 14px; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 20px;">
@@ -167,12 +167,13 @@ const handler = async (req: Request): Promise<Response> => {
         ...corsHeaders,
       },
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error in send-contact-email function:", error);
+    const message = error instanceof Error ? error.message : "Failed to send email";
     return new Response(
-      JSON.stringify({ 
-        error: error.message || "Failed to send email",
-        details: error.toString()
+      JSON.stringify({
+        error: message,
+        details: String(error)
       }),
       {
         status: 500,
