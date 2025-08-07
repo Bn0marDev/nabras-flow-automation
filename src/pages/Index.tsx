@@ -7,12 +7,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Zap, 
-  BarChart3, 
-  Calendar, 
+import Navbar from "@/components/Navbar";
+import CountdownTimer from "@/components/CountdownTimer";
+import {
+  CheckCircle,
+  Zap,
+  BarChart3,
+  Calendar,
   Truck,
   MessageSquare,
   Clock,
@@ -78,14 +79,11 @@ const Index = () => {
     }
   };
 
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div className="min-h-screen bg-gradient-hero text-foreground" dir="rtl">
+      <Navbar />
       {/* Hero Section */}
-      <section 
+      <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `linear-gradient(rgba(20, 25, 35, 0.85), rgba(20, 25, 35, 0.85)), url(${heroImage})`,
@@ -104,14 +102,7 @@ const Index = () => {
               نبراس التقنية تساعدك على إدارة الطلبات والفواتير وخدمات التوصيل وحجز الاستراحات 
               بسهولة وبشكل تلقائي، لتوفّر وقتك وجهدك
             </p>
-            <Button 
-              onClick={scrollToContact}
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg rounded-lg shadow-glow transition-smooth group"
-            >
-              اكتشف الحل الآن
-              <ArrowRight className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-all" />
-            </Button>
+            <CountdownTimer />
           </div>
         </div>
 
@@ -121,7 +112,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-secondary/30">
+      <section id="features" className="py-24 bg-secondary/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -185,7 +176,7 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-24">
+      <section id="how-it-works" className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
