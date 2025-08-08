@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import CountdownTimer from "@/components/CountdownTimer";
+import ServicesSection from "@/components/ServicesSection";
 import {
   CheckCircle,
   Zap,
@@ -134,69 +135,7 @@ const Index = () => {
         <div className="absolute bottom-32 right-16 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse delay-1000"></div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              مميزات منصة نبراس التقنية
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              نظام شامل ومتطور لأتمتة العمليات اليومية وتحسين الكفاءة التشغيلية لشركتك
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="bg-gradient-feature border-border/50 shadow-feature hover:shadow-glow transition-smooth group">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/30 transition-smooth">
-                  <Zap className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">أتمتة الطلبات والفواتير</h3>
-                <p className="text-muted-foreground">
-                  معالجة الطلبات وإنشاء الفواتير تلقائياً دون تدخّل يدوي
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-feature border-border/50 shadow-feature hover:shadow-glow transition-smooth group">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/30 transition-smooth">
-                  <Truck className="h-8 w-8 text-accent" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">خدمات التوصيل ومراقبتها</h3>
-                <p className="text-muted-foreground">
-                  تتبّع الطلبات في الوقت الفعلي وإدارة عمليات التوصيل بذكاء
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-feature border-border/50 shadow-feature hover:shadow-glow transition-smooth group">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/30 transition-smooth">
-                  <Calendar className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">نظام حجوزات ذكي</h3>
-                <p className="text-muted-foreground">
-                  جدولة المواعيد والاستراحات بشكل تلقائي دون تداخل
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-feature border-border/50 shadow-feature hover:shadow-glow transition-smooth group">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/30 transition-smooth">
-                  <BarChart3 className="h-8 w-8 text-accent" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">لوحة تحكّم واحدة</h3>
-                <p className="text-muted-foreground">
-                  واجهة بسيطة لإدارة جميع العمليات ومتابعة التقارير
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* How It Works Section */}
       <section id="how-it-works" className="py-24">
