@@ -17,6 +17,7 @@ import CaseStudies from "@/components/CaseStudies";
 import StartNowCTA from "@/components/StartNowCTA";
 import FAQSection from "@/components/FAQSection";
 import ContactInfo from "@/components/ContactInfo";
+import ServiceCards from "@/components/ServiceCards";
 import {
   CheckCircle,
   Zap,
@@ -144,6 +145,7 @@ const Index = () => {
 
       <AboutIntro />
       <ServicesSection />
+      <ServiceCards />
 
       <ApproachSection />
       <WhyChooseUs />
