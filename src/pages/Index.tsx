@@ -10,6 +10,13 @@ import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import CountdownTimer from "@/components/CountdownTimer";
 import ServicesSection from "@/components/ServicesSection";
+import AboutIntro from "@/components/AboutIntro";
+import ApproachSection from "@/components/ApproachSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import CaseStudies from "@/components/CaseStudies";
+import StartNowCTA from "@/components/StartNowCTA";
+import FAQSection from "@/components/FAQSection";
+import ContactInfo from "@/components/ContactInfo";
 import {
   CheckCircle,
   Zap,
@@ -135,65 +142,14 @@ const Index = () => {
         <div className="absolute bottom-32 right-16 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse delay-1000"></div>
       </section>
 
+      <AboutIntro />
       <ServicesSection />
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              كيف يعمل النظام؟
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              منصة نبراس التقنية تتكامل مع صفحات Facebook ووسائل التواصل الأخرى لأتمتة الردود
-              وقراءة الطلبات وتحديثها في قاعدة البيانات
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/30 transition-smooth">
-                <MessageSquare className="h-10 w-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">تكامل مع وسائل التواصل</h3>
-              <p className="text-muted-foreground">
-                ربط تلقائي مع صفحات Facebook وWhatsApp لاستقبال الطلبات ومعالجتها
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/30 transition-smooth">
-                <Clock className="h-10 w-10 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">معالجة فورية</h3>
-              <p className="text-muted-foreground">
-                تحديث فوري لقاعدة البيانات وإرسال الإشعارات عند استلام أو تحديث الطلبات
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/30 transition-smooth">
-                <Target className="h-10 w-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">دقة عالية</h3>
-              <p className="text-muted-foreground">
-                تقليل الأخطاء البشرية وتوفير الوقت مع تحسين تجربة العملاء
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-16 p-8 bg-gradient-feature rounded-2xl border border-border/50">
-            <div className="flex items-center justify-center mb-6">
-              <CheckCircle className="h-8 w-8 text-accent ml-3" />
-              <h3 className="text-2xl font-bold">مناسب للسوق الليبي</h3>
-            </div>
-            <p className="text-center text-muted-foreground text-lg">
-              خاصة للمطاعم والمتاجر الإلكترونية وشركات التوصيل في سبها وطرابلس وجميع أنحاء ليبيا.
-              نحن نفهم احتياجات السوق المحلي ونقدم حلول مخصصة تناسب طبيعة العمل في المنطقة.
-            </p>
-          </div>
-        </div>
-      </section>
+      <ApproachSection />
+      <WhyChooseUs />
+      <CaseStudies />
+      <StartNowCTA />
+      <FAQSection />
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-secondary/30">
@@ -207,6 +163,7 @@ const Index = () => {
                 احصل على استشارة مجانية وابدأ رحلتك نحو الأتمتة الذكية
               </p>
             </div>
+            <ContactInfo />
 
             <Card className="bg-gradient-feature border-border/50 shadow-feature">
               <CardContent className="p-8">
