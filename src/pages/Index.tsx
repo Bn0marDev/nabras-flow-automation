@@ -31,23 +31,39 @@ const Index = () => {
     service_type: "",
     additional_details: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+   const [isSubmitting, setIsSubmitting] = useState(false);
+   const [customService, setCustomService] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
+      // Prepare payload (support custom service type)
+      const payload = {
+        ...formData,
+        service_type: formData.service_type === "custom" ? customService : formData.service_type,
+      };
+
+      if (payload.service_type === "" || (formData.service_type === "custom" && !customService.trim())) {
+        toast({
+          title: "يرجى تحديد نوع الخدمة",
+          description: "اختر نوع الخدمة أو اكتب نوع الخدمة المخصص.",
+          variant: "destructive",
+        });
+        return;
+      }
+
       // Save to database
       const { error: dbError } = await supabase
         .from("contact_inquiries")
-        .insert([formData]);
+        .insert([payload]);
 
       if (dbError) throw dbError;
 
       // Send email notification
       const { error: emailError } = await supabase.functions.invoke("send-contact-email", {
-        body: formData
+        body: payload
       });
 
       if (emailError) {
@@ -67,6 +83,7 @@ const Index = () => {
         service_type: "",
         additional_details: ""
       });
+      setCustomService("");
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -96,13 +113,19 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-accent bg-clip-text text-transparent leading-tight">
-              حل ذكي لأتمتة مهامك اليومية
+              نبراس التقنية: شريكك في التحول الرقمي الذكي
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-              نبراس التقنية تساعدك على إدارة الطلبات والفواتير وخدمات التوصيل وحجز الاستراحات 
-              بسهولة وبشكل تلقائي، لتوفّر وقتك وجهدك
+              نحول عملياتك اليدوية إلى أنظمة ذكية تعمل بكفاءة عالية وتوفر الوقت والجهد، باستخدام أحدث الحلول التقنية المتطورة ووكلاء الذكاء الاصطناعي.
             </p>
-            <CountdownTimer />
+            <div className="flex items-center justify-center gap-4">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 text-lg rounded-lg shadow-glow transition-smooth">
+                <a href="#contact" aria-label="ابدأ التحول الرقمي معنا الآن">ابدأ التحول الرقمي معنا الآن</a>
+              </Button>
+              <Button variant="secondary" asChild className="px-6 py-6 text-lg rounded-lg">
+                <a href="#contact" aria-label="احجز استشارة مجانية">احجز استشارة مجانية</a>
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -274,6 +297,7 @@ const Index = () => {
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                         className="bg-background/50 border-border"
                         placeholder="+218..."
+                        inputMode="tel"
                       />
                     </div>
                   </div>
@@ -321,12 +345,27 @@ const Index = () => {
                         <SelectItem value="booking_system">نظام الحجوزات</SelectItem>
                         <SelectItem value="complete_solution">الحل الشامل</SelectItem>
                         <SelectItem value="consultation">استشارة فقط</SelectItem>
-                        <SelectItem value="other">أخرى</SelectItem>
+                        <SelectItem value="custom">أخرى - اكتب نوع الخدمة</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
+                  {formData.service_type === "custom" && (
+                    <div className="mt-4">
+                      <Label htmlFor="custom_service_type" className="text-sm font-medium mb-2 block">
+                        نوع الخدمة (مخصص) *
+                      </Label>
+                      <Input
+                        id="custom_service_type"
+                        required
+                        value={customService}
+                        onChange={(e) => setCustomService(e.target.value)}
+                        className="bg-background/50 border-border"
+                        placeholder="اكتب نوع الخدمة المطلوبة"
+                      />
+                    </div>
+                  )}
 
-                  <div>
+                   <div>
                     <Label htmlFor="additional_details" className="text-sm font-medium mb-2 block">
                       تفاصيل إضافية
                     </Label>
