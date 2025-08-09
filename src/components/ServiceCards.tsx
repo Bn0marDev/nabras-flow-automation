@@ -30,8 +30,8 @@ export default function ServiceCards() {
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">خدماتنا الرئيسية</h2>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <Card key={service.title} className="overflow-hidden">
-              <img src={service.image} alt={service.title} className="w-full h-40 object-cover" loading="lazy" decoding="async" />
+            <Card key={service.title} className="overflow-hidden hover-scale transition-smooth">
+              <img src={service.image} alt={service.title} className="w-full h-56 object-contain p-6" loading="lazy" decoding="async" />
               <CardHeader>
                 <CardTitle className="text-xl text-center">{service.title}</CardTitle>
               </CardHeader>

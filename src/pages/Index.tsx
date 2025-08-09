@@ -28,7 +28,7 @@ import {
   Clock,
   Target
 } from "lucide-react";
-import heroImage from "@/assets/hero-bg.jpg";
+import heroSvg from "@/assets/Digital transformation-amico.svg";
 
 const Index = () => {
   const { toast } = useToast();
@@ -109,38 +109,42 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-hero text-foreground" dir="rtl">
       <Navbar />
       {/* Hero Section */}
-      <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(20, 25, 35, 0.85), rgba(20, 25, 35, 0.85)), url(${heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
-        
-        <div className="relative z-10 container mx-auto px-6 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-accent bg-clip-text text-transparent leading-tight">
+      <section className="relative pt-32 pb-16 md:pb-24 overflow-hidden bg-gradient-hero">
+        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+          {/* Text */}
+          <div className="text-center md:text-right animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-accent bg-clip-text text-transparent leading-tight">
               نبراس التقنية: شريكك في التحول الرقمي الذكي
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
+            <p className="text-lg md:text-2xl text-muted-foreground mb-10 leading-relaxed">
               نحول عملياتك اليدوية إلى أنظمة ذكية تعمل بكفاءة عالية وتوفر الوقت والجهد، باستخدام أحدث الحلول التقنية المتطورة ووكلاء الذكاء الاصطناعي.
             </p>
-            <div className="flex items-center justify-center gap-4">
-              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 text-lg rounded-lg shadow-glow transition-smooth">
+            <div className="flex items-center justify-center md:justify-start gap-4">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 text-lg rounded-lg shadow-glow transition-smooth hover-scale">
                 <a href="#contact" aria-label="ابدأ التحول الرقمي معنا الآن">ابدأ التحول الرقمي معنا الآن</a>
               </Button>
-              <Button variant="secondary" asChild className="px-6 py-6 text-lg rounded-lg">
+              <Button variant="secondary" asChild className="px-6 py-6 text-lg rounded-lg hover-scale">
                 <a href="#contact" aria-label="احجز استشارة مجانية">احجز استشارة مجانية</a>
               </Button>
             </div>
           </div>
+
+          {/* Illustration */}
+          <div className="relative animate-slide-in-right">
+            <img
+              src={heroSvg}
+              alt="تحول رقمي وذكاء اصطناعي"
+              className="w-full max-w-xl h-auto mx-auto md:mr-0 md:ml-auto"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </div>
         </div>
 
-        {/* Floating elements */}
-        <div className="absolute top-20 left-20 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-32 h-32 bg-accent/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        {/* Decorative blobs */}
+        <div className="absolute -top-16 -left-16 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 -right-20 w-56 h-56 bg-accent/20 rounded-full blur-3xl"></div>
       </section>
 
       <AboutIntro />
