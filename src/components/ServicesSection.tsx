@@ -36,14 +36,14 @@ const ServiceCard = ({
   <Card className="bg-gradient-feature border-border/50 shadow-feature hover:shadow-glow transition-smooth group">
     <CardContent className="p-6">
       <div
-        className={`w-14 h-14 ${accent === "primary" ? "bg-primary/20" : "bg-accent/20"} rounded-2xl flex items-center justify-center mb-4 group-hover:${accent === "primary" ? "bg-primary/30" : "bg-accent/30"} transition-smooth`}
+        className={`w-16 h-16 md:w-24 md:h-24 ${accent === "primary" ? "bg-primary/15" : "bg-accent/15"} rounded-2xl flex items-center justify-center mb-4 group-hover:${accent === "primary" ? "bg-primary/25" : "bg-accent/25"} transition-smooth`}
       >
         <img
           src={imageSrc}
           alt={imageAlt ?? title}
           loading="lazy"
           decoding="async"
-          className="h-8 w-8 object-contain"
+          className="h-12 w-12 md:h-16 md:w-16 object-contain"
         />
       </div>
       <h4 className="text-lg font-bold mb-2">{title}</h4>

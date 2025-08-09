@@ -18,7 +18,7 @@ const About = () => (
       {serviceImages.map(({ name, url }) => (
         <Card key={name} className="overflow-hidden">
           <CardContent className="p-4 flex items-center justify-center">
-            <img src={url} alt={name} className="object-contain h-48 md:h-56" loading="lazy" decoding="async" />
+            <img src={url} alt={name} className="object-contain h-56 md:h-72" loading="lazy" decoding="async" />
           </CardContent>
           <CardHeader>
             <CardTitle className="text-center text-base font-medium">{name}</CardTitle>

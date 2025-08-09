@@ -31,7 +31,7 @@ export default function ServiceCards() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <Card key={service.title} className="overflow-hidden hover-scale transition-smooth">
-              <img src={service.image} alt={service.title} className="w-full h-56 object-contain p-6" loading="lazy" decoding="async" />
+              <img src={service.image} alt={service.title} className="w-full h-64 md:h-80 object-contain p-8" loading="lazy" decoding="async" />
               <CardHeader>
                 <CardTitle className="text-xl text-center">{service.title}</CardTitle>
               </CardHeader>
