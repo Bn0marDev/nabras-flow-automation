@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md shadow-sm" dir="rtl">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
-          <img src="/logo.svg" alt="نبراس التقنية" className="h-8 w-auto" />
+          <img src="/logo.svg" alt="نبراس التقنية" className="h-8 w-auto" loading="eager" decoding="async" fetchPriority="high" />
         </a>
         <button
           className="md:hidden text-foreground"
